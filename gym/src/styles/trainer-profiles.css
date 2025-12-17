@@ -1,0 +1,666 @@
+/* src/styles/trainer-profiles.css */
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --text-dark: #1f2937;
+  --text-light: #4b5563;
+  --text-lighter: #6b7280;
+  --bg-light: #f9fafb;
+  --bg-dark: #1f2937;
+  --card-light: white;
+  --card-dark: #374151;
+  --border-light: #e5e7eb;
+  --border-dark: #4b5563;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 30px rgba(0, 0, 0, 0.1);
+  --shadow-dark-md: 0 10px 25px rgba(0, 0, 0, 0.2);
+  --shadow-dark-lg: 0 20px 30px rgba(0, 0, 0, 0.3);
+  --transition: all 0.3s ease;
+  --border-radius: 0.5rem;
+  --border-radius-full: 9999px;
+}
+
+/* Trainers Section */
+.trainers-section {
+  padding: 5rem 0;
+  background-color: white;
+}
+
+.dark .trainers-section {
+  background-color: white;
+}
+
+.trainers-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Section Header */
+.trainers-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.trainers-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.dark .trainers-title {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .trainers-title {
+    font-size: 3rem;
+  }
+}
+
+.trainers-title-highlight {
+  color: var(--primary);
+}
+
+.trainers-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  max-width: 48rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.dark .trainers-subtitle {
+  color: #9ca3af;
+}
+
+/* Error Message */
+.error-message {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-radius: var(--border-radius);
+}
+
+.dark .error-message {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+
+/* Trainers Grid */
+.trainers-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .trainers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .trainers-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Trainer Card */
+.trainer-card {
+  position: relative;
+  background-color: var(--card-light);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark .trainer-card {
+  background-color: var(--card-dark);
+  box-shadow: var(--shadow-dark-md);
+}
+
+.trainer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.dark .trainer-card:hover {
+  box-shadow: var(--shadow-dark-lg);
+}
+
+/* Profile Image */
+.trainer-image-container {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.trainer-image-wrapper {
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto;
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+}
+
+.trainer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.trainer-card:hover .trainer-image {
+  transform: scale(1.1);
+}
+
+.trainer-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+  border-radius: var(--border-radius-full);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.trainer-card:hover .trainer-image-overlay {
+  opacity: 1;
+}
+
+/* Trainer Info */
+.trainer-info {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.trainer-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.dark .trainer-name {
+  color: white;
+}
+
+.trainer-specialization {
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.trainer-bio {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.dark .trainer-bio {
+  color: #9ca3af;
+}
+
+/* Trainer Stats */
+.trainer-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.stat-icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--primary);
+  margin-right: 0.25rem;
+}
+
+.stat-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.dark .stat-value {
+  color: white;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-lighter);
+}
+
+.dark .stat-label {
+  color: #9ca3af;
+}
+
+/* Certifications */
+.certifications {
+  margin-bottom: 1rem;
+}
+
+.certifications-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-content: center;
+}
+
+.certification-badge {
+  font-size: 0.75rem;
+  background-color: #dbeafe; /* bg-primary-100 */
+  color: #1d4ed8; /* text-primary-700 */
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.dark .certification-badge {
+  background-color: #1e3a8a; /* dark:bg-primary-900 */
+  color: #93c5fd; /* dark:text-primary-300 */
+}
+/* Book Session Button */
+.book-button {
+  width: 100%;
+  margin-top: auto;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.book-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.book-button:active {
+  transform: translateY(0);
+}
+
+/* Booking Modal Styles */
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.booking-modal-container {
+  background-color: var(--card-light);
+  border-radius: var(--border-radius);
+  width: 100%;
+  max-width: 32rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+}
+
+.dark .booking-modal-container {
+  background-color: var(--card-dark);
+  box-shadow: var(--shadow-dark-lg);
+}
+
+.booking-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dark .booking-modal-header {
+  border-bottom-color: var(--border-dark);
+}
+
+.booking-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.dark .booking-modal-title {
+  color: white;
+}
+
+.booking-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--text-lighter);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.booking-modal-close:hover {
+  background-color: #f3f4f6;
+  color: var(--text-dark);
+}
+
+.dark .booking-modal-close:hover {
+  background-color: #374151;
+  color: white;
+}
+
+.booking-modal-body {
+  padding: 1.5rem;
+}
+
+/* Trainer Summary in Modal */
+.booking-trainer-summary {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dark .booking-trainer-summary {
+  border-bottom-color: var(--border-dark);
+}
+
+.booking-trainer-image-container {
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--border-radius-full);
+  overflow: hidden;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.booking-trainer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.booking-trainer-info {
+  flex: 1;
+}
+
+.booking-trainer-name {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text-dark);
+}
+
+.dark .booking-trainer-name {
+  color: white;
+}
+
+.booking-trainer-specialization {
+  color: var(--primary);
+  font-size: 0.875rem;
+}
+
+/* Form Styles */
+.form-row {
+  margin-bottom: 1.25rem;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .two-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-group {
+  width: 100%;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.dark .form-label {
+  color: #e5e7eb;
+}
+
+.form-label-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  color: var(--primary);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius);
+  background-color: white;
+  color: var(--text-dark);
+  transition: var(--transition);
+}
+
+.dark .form-input,
+.dark .form-select,
+.dark .form-textarea {
+  background-color: #1f2937;
+  border-color: var(--border-dark);
+  color: white;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+
+.dark .form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.booking-modal-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.booking-modal-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.booking-modal-btn-cancel {
+  background-color: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-dark);
+}
+
+.dark .booking-modal-btn-cancel {
+  border-color: var(--border-dark);
+  color: #e5e7eb;
+}
+
+.booking-modal-btn-cancel:hover {
+  background-color: #f3f4f6;
+}
+
+.dark .booking-modal-btn-cancel:hover {
+  background-color: #374151;
+}
+
+.booking-modal-btn-submit {
+  background-color: var(--primary);
+  border: none;
+  color: white;
+}
+
+.booking-modal-btn-submit:hover {
+  background-color: var(--primary-dark);
+}
+
+.booking-modal-btn-submit:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.booking-modal-overlay {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.booking-modal-container {
+  animation: scaleIn 0.3s ease forwards;
+}
+
+/* Loading Spinner */
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(59, 130, 246, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--primary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* Success message styling */
+.booking-success {
+  padding: 20px;
+  text-align: center;
+}
+
+.success-icon {
+  margin: 0 auto 20px;
+  width: 60px;
+  height: 60px;
+  animation: scale-in 0.5s ease-out;
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.booking-success h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+.booking-details {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* Spinner for loading state */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

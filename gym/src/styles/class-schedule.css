@@ -1,0 +1,951 @@
+/* Class Schedule Section */ 
+/* Base Styles */   
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --text-lighter: #9ca3af;
+  --bg-light: #f3f4f6;
+  --bg-dark: #1f2937;
+  --bg-darker: #374151;
+  --border-light: #d1d5db;
+  --border-dark: #4b5563;
+  --error: #ef4444;
+  --error-light: #fee2e2;
+  --error-dark: #7f1d1d;
+  --shadow-md: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md-dark: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+}
+
+
+.schedule-section {
+  padding: 5rem 0;
+  background-color: var(--bg-light);
+}
+
+.dark .schedule-section {
+  background-color: var(--bg-dark);
+}
+
+.schedule-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* Header Styles */
+.schedule-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.section-top-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.dark .section-top-title{
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .section-top-title {
+    font-size: 3rem;
+  }
+}
+
+.section-top-title-highlight {
+  color: var(--primary);
+}
+
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.dark .section-subtitle {
+  color: white;
+}
+
+
+/* Filters */
+.schedule-filters {
+  margin-bottom: 2rem;
+}
+
+.filter-section {
+  margin-bottom: 1.5rem;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #3b82f6;
+  margin-right: 0.5rem;
+}
+
+.filter-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.dark .filter-title {
+  color: #f9fafb;
+}
+/* Fix for filter title alignment */
+.filter-title.mb-4 {
+  margin-bottom: 1rem !important;
+  text-align: left !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.filter-button-active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.filter-button-inactive {
+  background-color: white;
+  color: #4b5563;
+}
+
+.dark .filter-button-inactive {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.filter-button-inactive:hover {
+  background-color: #f3f4f6;
+}
+
+.dark .filter-button-inactive:hover {
+  background-color: #4b5563;
+}
+
+/* Class Cards */
+.schedule-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.class-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .class-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.dark .class-card {
+  background-color: #374151;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dark .class-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.class-info {
+  flex: 1;
+}
+
+.class-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.class-time-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #3b82f6;
+  margin-right: 0.5rem;
+}
+
+.class-time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.class-type-badge {
+  margin-left: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.class-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.dark .class-name {
+  color: #f9fafb;
+}
+
+.class-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+  overflow:visible;
+  color: #6b7280;
+}
+
+.dark .class-details {
+  color: #9ca3af;
+}
+
+.class-detail {
+  display: flex;
+  align-items: center;
+}
+
+.class-detail-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.25rem;
+}
+
+.class-difficulty {
+  font-weight: 500;
+}
+
+.difficulty-beginner {
+  color: #10b981;
+}
+
+.difficulty-intermediate {
+  color: #f59e0b;
+}
+
+.difficulty-advanced {
+  color: #ef4444;
+}
+
+.difficulty-all {
+  color: #3b82f6;
+}
+
+.class-spots {
+  font-weight: 500;
+}
+
+.spots-available {
+  color: #10b981;
+}
+
+.spots-limited {
+  color: #ef4444;
+}
+
+.class-action {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .class-action {
+    margin-top: 0;
+    margin-left: 1.5rem;
+  }
+}
+
+.class-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.class-button-available {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.class-button-available:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.class-button-full {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.dark .class-button-full {
+  background-color: #4b5563;
+  color: #9ca3af;
+}
+
+/* Empty State */
+.schedule-empty {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.empty-message {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.dark .empty-message {
+  color: #9ca3af;
+}
+
+/* Type Colors */
+.type-yoga {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.dark .type-yoga {
+  background-color: #064e3b;
+  color: #a7f3d0;
+}
+
+.type-cardio {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.dark .type-cardio {
+  background-color: #1e3a8a;
+  color: #93c5fd;
+}
+
+.type-strength {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.dark .type-strength {
+  background-color: #7f1d1d;
+  color: #fecaca;
+}
+
+.type-hiit {
+  background-color: #ffedd5;
+  color: #c2410c;
+}
+
+.dark .type-hiit {
+  background-color: #7c2d12;
+  color: #fed7aa;
+}
+
+.type-dance {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+}
+
+.dark .type-dance {
+  background-color: #581c87;
+  color: #e9d5ff;
+}
+/* Booking Modal Styles */
+.booking-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.booking-modal-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 32rem;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .booking-modal-container {
+  background-color: #374151;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.booking-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.dark .booking-modal-header {
+  border-bottom-color: #4b5563;
+}
+
+.booking-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.dark .booking-modal-title {
+  color: white;
+}
+
+.booking-modal-close {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.booking-modal-close:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.dark .booking-modal-close:hover {
+  background-color: #4b5563;
+  color: white;
+}
+
+.booking-modal-body {
+  padding: 1.5rem;
+}
+
+/* Class Summary in Modal */
+.booking-class-summary {
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.dark .booking-class-summary {
+  background-color: #1f2937;
+}
+
+.booking-class-type {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.booking-class-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.booking-class-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.booking-info-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.dark .booking-info-item {
+  color: #d1d5db;
+}
+
+.booking-info-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  color: #3b82f6;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.dark .form-label {
+  color: #f9fafb;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.dark .form-input,
+.dark .form-textarea {
+  background-color: #1f2937;
+  border-color: #4b5563;
+  color: white;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.form-helper-text {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.dark .form-helper-text {
+  color: #9ca3af;
+}
+
+.booking-modal-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.booking-modal-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.booking-modal-btn-cancel {
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  color: #1f2937;
+}
+
+.dark .booking-modal-btn-cancel {
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.booking-modal-btn-cancel:hover {
+  background-color: #f3f4f6;
+}
+
+.dark .booking-modal-btn-cancel:hover {
+  background-color: #374151;
+}
+
+.booking-modal-btn-submit {
+  background-color: #3b82f6;
+  border: none;
+  color: white;
+}
+
+.booking-modal-btn-submit:hover {
+  background-color: #2563eb;
+}
+
+/* Animation for modal */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.booking-modal-overlay {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.booking-modal-container {
+  animation: scaleIn 0.3s ease forwards;
+}
+
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.class-card {
+  animation: slideIn 0.4s ease-out;
+}
+/* src/styles/class-schedule.css */
+
+/* Section Styles */
+.schedule-section {
+  background-color: #f9fafb;
+}
+.dark .schedule-section {
+  background-color: #1f2937;
+}
+
+.schedule-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header Styles */
+.schedule-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.schedule-title .highlight {
+  color: #3b82f6; /* Corresponds to text-primary-500 */
+}
+
+/* Filter Styles */
+.filter-section {
+  margin-bottom: 1.5rem;
+}
+
+.filter-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.filter-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #3b82f6;
+  margin-right: 0.5rem;
+}
+
+.filter-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  background-color: white;
+  color: #4b5563;
+}
+
+.dark .filter-button {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.filter-button:hover {
+  background-color: #f3f4f6;
+}
+
+.dark .filter-button:hover {
+  background-color: #4b5563;
+}
+
+.filter-button.active {
+  background-color: #3b82f6;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+}
+
+/* Schedule Grid Styles */
+.schedule-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.class-card {
+  transition: all 0.3s ease;
+}
+
+.class-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.class-time {
+  color: #3b82f6;
+}
+
+.class-type-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* Dynamic Badge Colors */
+.type-yoga { background-color: #d1fae5; color: #047857; }
+.dark .type-yoga { background-color: #064e3b; color: #a7f3d0; }
+
+.type-cardio { background-color: #dbeafe; color: #1d4ed8; }
+.dark .type-cardio { background-color: #1e3a8a; color: #93c5fd; }
+
+.type-strength { background-color: #fee2e2; color: #b91c1c; }
+.dark .type-strength { background-color: #7f1d1d; color: #fecaca; }
+
+.type-hiit { background-color: #ffedd5; color: #c2410c; }
+.dark .type-hiit { background-color: #7c2d12; color: #fed7aa; }
+
+.type-dance { background-color: #f3e8ff; color: #7e22ce; }
+.dark .type-dance { background-color: #581c87; color: #e9d5ff; }
+
+/* Dynamic Difficulty Colors */
+.difficulty-beginner { color: #10b981; }
+.difficulty-intermediate { color: #f59e0b; }
+.difficulty-advanced { color: #ef4444; }
+.difficulty-all-levels { color: #3b82f6; }
+
+/* Spots Left Colors */
+.spots-limited { color: #ef4444; }
+.spots-available { color: #10b981; }
+
+/* Action Button */
+.class-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.class-button-available {
+  background-color: #3b82f6;
+  color: white;
+}
+.class-button-available:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+.class-button-full {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+.dark .class-button-full {
+  background-color: #4b5563;
+  color: #9ca3af;
+}
+
+/* Empty State */
+.schedule-empty {
+  text-align: center;
+  padding: 3rem 0;
+  color: #6b7280;
+}
+.dark .schedule-empty {
+  color: #9ca3af;
+}
+
+/* Add these styles to your class-schedule.css file or replace the existing styles */
+
+/* Remove hover transform effect from class cards */
+.class-card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease; /* Keep only box-shadow transition */
+}
+
+@media (min-width: 768px) {
+  .class-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.dark .class-card {
+  background-color: #374151;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Remove hover transform effect */
+.class-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Keep shadow enhancement but remove transform */
+}
+
+.dark .class-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Remove hover animation from button */
+.class-button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Only transition background color */
+  border: none;
+}
+
+.class-button-available {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.class-button-available:hover {
+  background-color: #2563eb; /* Keep color change but remove transform */
+}
+
+/* Remove animation keyframes that are no longer needed */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Keep the animation for initial load but not for hover */
+.class-card {
+  animation: slideIn 0.4s ease-out;
+}
+
+/* Ensure class details are always visible */
+.class-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.dark .class-details {
+  color: #9ca3af;
+}
+
+/* Make sure all information is clearly visible */
+.class-time {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+
+.class-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.dark .class-name {
+  color: #f9fafb;
+}
+
+/* Ensure spots information is clearly visible */
+.spots-available {
+  color: #10b981;
+  font-weight: 500;
+}
+
+.spots-limited {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+

@@ -1,0 +1,64 @@
+/* src/styles/scroll-to-top.css */
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-md-dark: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+}
+
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  padding: 0.75rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 9999px;
+  box-shadow: var(--shadow-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+.scroll-to-top-button:active {
+  transform: translateY(0);
+}
+
+.scroll-to-top-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.scroll-to-top-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.dark .scroll-to-top-button {
+  box-shadow: var(--shadow-md-dark);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .scroll-to-top-button {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.625rem;
+  }
+  
+  .scroll-to-top-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}
