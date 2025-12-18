@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 // Configuration
 const CONFIG = {
   API_URL:
