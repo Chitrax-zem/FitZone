@@ -1,7 +1,7 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   css: {
@@ -12,13 +12,20 @@ export default defineConfig({
     }
   },
   server: {
+    host: 'localhost',
+    port: 5173,          // serve the app on 5174
+    strictPort: true,    // fail fast if taken (change to false to auto-increment)
+    hmr: {
+      host: 'localhost',
+      port: 5173,        // HMR WS also uses 5174 to match the browser
+      protocol: 'ws'
+    },
     proxy: {
-      // You can set up a proxy for API requests
       '/api': {
         target: 'http://localhost:5000',
-        changeOrigin: true,
+        changeOrigin: true
         // rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
-  } // Added closing bracket here
+  }
 })

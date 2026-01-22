@@ -428,3 +428,26 @@
   background-color: var(--primary-dark);
   transform: translateY(-2px);
 }
+
+/* Make contact grid stack nicely */
+@media (max-width: 640px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+  .contact-form-container {
+    padding: var(--space-6);
+  }
+  .contact-map,
+  .map-fallback {
+    height: 260px;
+  }
+}
+
+/* Ensure inputs are comfortable */
+.form-input, .form-textarea, .form-select {
+  min-height: 44px;
+  font-size: 1rem;
+}

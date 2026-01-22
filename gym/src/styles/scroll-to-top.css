@@ -62,3 +62,26 @@
     width: 1.25rem;
   }
 }
+
+
+/* Respect iOS safe areas and avoid covering content */
+.scroll-to-top-button {
+  /* Already bottom/right set; add safe area compensation */
+  bottom: calc(2rem + env(safe-area-inset-bottom, 0));
+  right: calc(2rem + env(safe-area-inset-right, 0));
+}
+
+@media (max-width: 640px) {
+  .scroll-to-top-button {
+    bottom: calc(1.5rem + env(safe-area-inset-bottom, 0));
+    right: calc(1.5rem + env(safe-area-inset-right, 0));
+  }
+}
+
+/* Larger tap target on mobile */
+@media (max-width: 640px) {
+  .scroll-to-top-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

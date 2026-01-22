@@ -1,4 +1,4 @@
-// client/src/App.js
+// src/App.jsx
 import React, { useState } from 'react';
 import { AuthProvider } from './contexts/AuthContext';
 import Navbar from './components/Navbar';
@@ -21,26 +21,25 @@ function App() {
   return (
     <AuthProvider>
       <BookingProvider>
-      <div className={darkMode ? 'dark' : ''}>
-        <div className="app-container">
-          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-          <main>
-            <Hero />
-            <MembershipPlans />
-            <TrainerProfiles />
-            <ClassSchedule />
-            <WorkoutTips />
-            <Gallery />
-            <Contact />
-            <UserProfile/>
-          </main>
-          <Footer />
-          <ScrollToTop />
+        <div className={darkMode ? 'dark' : ''}>
+          <div className="app-container">
+            <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+            <main>
+              <Hero />
+              <MembershipPlans />
+              <TrainerProfiles />
+              <ClassSchedule />
+              <WorkoutTips />
+              <Gallery />
+              <Contact />
+              <UserProfile />
+            </main>
+            <Footer />
+            <ScrollToTop />
+          </div>
         </div>
-      </div>
       </BookingProvider>
     </AuthProvider>
   );
 }
-
 export default App;

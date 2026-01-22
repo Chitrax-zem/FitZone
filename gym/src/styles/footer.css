@@ -383,3 +383,23 @@
     margin-bottom: 0.5rem;
   }
 }
+
+/* Mobile spacing + stacking improvements */
+@media (max-width: 640px) {
+  .brand-description {
+    max-width: none;
+  }
+  .footer-links-column {
+    margin-left: 0; /* remove manual left margin on mobile */
+  }
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .newsletter-input {
+    border-radius: 0.5rem;
+  }
+  .newsletter-button {
+    border-radius: 0.5rem;
+  }
+}

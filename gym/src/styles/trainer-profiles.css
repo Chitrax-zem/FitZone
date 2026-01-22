@@ -664,3 +664,23 @@
     transform: rotate(360deg);
   }
 }
+
+/* Tighten on small devices */
+@media (max-width: 480px) {
+  .trainers-title {
+    font-size: 1.8rem;
+  }
+  .trainer-card {
+    padding: 1rem;
+  }
+  .trainer-image-wrapper {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .trainer-name {
+    font-size: 1.1rem;
+  }
+  .book-button {
+    min-height: 44px;
+  }
+}

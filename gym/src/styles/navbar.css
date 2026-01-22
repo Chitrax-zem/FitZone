@@ -799,3 +799,8 @@ body, html {
 .user-button-mobile {
   z-index: 9998;
 }
+
+/* Ensure navbar doesn’t block modals (modals at 1000+) */
+.navbar {
+  z-index: 1000;
+}

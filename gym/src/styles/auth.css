@@ -451,3 +451,34 @@
   background-color: var(--primary-dark);
   transform: translateY(-2px);
 }
+/* Mobile-first improvements */
+@media (max-width: 480px) {
+  .auth-modal-container {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .auth-title {
+    font-size: 1.5rem;
+  }
+
+  .auth-input {
+    font-size: 1rem;
+    min-height: 44px;
+  }
+
+  .auth-button {
+    min-height: 44px;
+    font-size: 1rem;
+  }
+}
+
+/* Ensure modal can always fit on small screens */
+.auth-modal-overlay {
+  align-items: flex-start;
+}
+
+.auth-modal-container {
+  max-height: 90vh;
+  overflow-y: auto;
+}

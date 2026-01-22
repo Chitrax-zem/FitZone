@@ -709,3 +709,16 @@
 .delay-300 {
   animation-delay: 0.3s;
 }
+
+/* Mobile typography and spacing */
+@media (max-width: 640px) {
+  .tips-title {
+    font-size: 1.8rem;
+  }
+  .featured-tip-image {
+    height: 14rem;
+  }
+  .read-more-button {
+    min-height: 44px;
+  }
+}

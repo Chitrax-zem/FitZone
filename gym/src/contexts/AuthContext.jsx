@@ -1,4 +1,4 @@
-// client/src/contexts/AuthContext.js
+// src/contexts/AuthContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
 import { authService } from '../services/api';
 
@@ -17,7 +17,6 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
         return;
       }
-
       try {
         const response = await authService.getCurrentUser();
         if (response?.data) {
@@ -31,29 +30,18 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
       }
     };
-
     loadUser();
   }, []);
 
-  // Register user
   const register = async (userData) => {
     try {
       setError(null);
       const response = await authService.register(userData);
-      
-      // Handle different possible response structures
       const data = response.data || response;
       const token = data.token || data.accessToken;
-      const user = data.user || data.userData || data;
-      
-      if (token) {
-        localStorage.setItem('token', token);
-      }
-      
-      if (user && user._id) {
-        setUser(user);
-      }
-      
+      const u = data.user || data.userData || data;
+      if (token) localStorage.setItem('token', token);
+      if (u && u._id) setUser(u);
       return data;
     } catch (err) {
       console.error('Registration error:', err);
@@ -63,45 +51,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Login user
   const login = async (credentials) => {
     try {
       setError(null);
-      console.log('Sending login request with:', credentials);
-      
       const response = await authService.login(credentials);
-      console.log('Login response:', response);
-      
-      // Handle different possible response structures
       const data = response.data || response;
-      
-      // Try different possible token field names
       const token = data.token || data.accessToken || data.authToken;
-      
-      // Try different possible user field names
-      const user = data.user || data.userData || (data._id ? data : null);
-      
-      if (!token && !user) {
-        throw new Error('Invalid response format from server');
-      }
-      
-      // Store token if available
-      if (token) {
-        localStorage.setItem('token', token);
-      }
-      
-      // Set user data
-      if (user && (user._id || user.id)) {
-        setUser(user);
-        return user;
+      const u = data.user || data.userData || (data._id ? data : null);
+      if (!token && !u) throw new Error('Invalid response format from server');
+      if (token) localStorage.setItem('token', token);
+      if (u && (u._id || u.id)) {
+        setUser(u);
+        return u;
       } else if (data._id || data.id) {
-        // If the response itself contains user data
         setUser(data);
         return data;
       } else {
         throw new Error('No user data received from server');
       }
-      
     } catch (err) {
       console.error('Login error:', err);
       const errorMessage = err.response?.data?.message || err.message || 'Login failed. Please check your credentials.';
@@ -116,23 +83,10 @@ export const AuthProvider = ({ children }) => {
     setError(null);
   };
 
-  // Clear error
-  const clearError = () => {
-    setError(null);
-  };
+  const clearError = () => setError(null);
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        loading,
-        error,
-        register,
-        login,
-        logout,
-        clearError
-      }}
-    >
+    <AuthContext.Provider value={{ user, loading, error, register, login, logout, clearError }}>
       {children}
     </AuthContext.Provider>
   );

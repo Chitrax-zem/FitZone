@@ -332,3 +332,27 @@
 .hero-content > div {
   animation: fadeIn 1s ease-out forwards;
 }
+
+/* On small devices, avoid full 100vh which can be cramped due to UI chrome */
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: 85vh;
+    height: auto;
+    padding-top: 60px; /* ensure under navbar */
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-stats {
+    gap: 1.25rem;
+  }
+}
+
+/* Make video popup always fit */
+.video-popup-container {
+  max-height: 90vh;
+}

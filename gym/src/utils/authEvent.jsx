@@ -1,5 +1,7 @@
+// centralize utility (you already have an event in some places)
 export const openAuthModal = (view = 'login') => {
-  console.log(`Dispatching openAuthModal event with view: ${view}`);
-  const event = new CustomEvent('openAuthModal', { detail: { view } });
-  document.dispatchEvent(event);
+  document.dispatchEvent(new CustomEvent('openAuthModal', { detail: { view } }));
 };
+
+// usage:
+openAuthModal('login');

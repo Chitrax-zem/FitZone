@@ -948,4 +948,94 @@
   font-weight: 500;
 }
 
+/* Filters - normalize active/inactive behavior */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Small screens: allow horizontal scroll if many filters */
+@media (max-width: 480px) {
+  .filter-buttons {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+  }
+  .filter-buttons::-webkit-scrollbar { height: 6px; }
+  .filter-buttons::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 9999px; }
+}
+
+.filter-button {
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background-color: #ffffff;
+  color: #4b5563;
+}
+
+.dark .filter-button {
+  background-color: #374151;
+  color: #d1d5db;
+}
+
+.filter-button:hover {
+  background-color: #f3f4f6;
+}
+
+.dark .filter-button:hover {
+  background-color: #4b5563;
+}
+
+.filter-button.active {
+  background-color: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.28);
+}
+
+/* Header subtitle: fix color in light mode (was white) */
+.section-subtitle {
+  color: #4b5563; /* gray-600 */
+}
+.dark .section-subtitle {
+  color: #9ca3af;
+}
+
+/* Grid responsive tweaks */
+.schedule-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+/* Improve mobile density */
+@media (max-width: 480px) {
+  .section-top-title {
+    font-size: 1.75rem;
+  }
+  .class-card {
+    padding: 1rem;
+  }
+  .class-time {
+    font-size: 1.25rem;
+  }
+  .class-details {
+    gap: 0.75rem;
+    font-size: 0.85rem;
+  }
+  .class-button {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+/* Modal mobile safety */
+.booking-modal-container {
+  max-height: 90vh;
+  overflow-y: auto;
+}
 

@@ -35,3 +35,61 @@
 .nav-item.active::after {
   @apply w-full;
 }
+
+/* ===== Responsive refinements for header ===== */
+
+/* Make sure header height is predictable on small screens */
+:root {
+  --navbar-height: 60px;
+}
+
+/* Reserve space below header on pages that don't offset own padding */
+body.has-fixed-header {
+  padding-top: var(--navbar-height);
+}
+
+/* Ensure mobile menu content scrolls if too tall */
+.mobile-menu {
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Tap targets larger on mobile */
+@media (max-width: 640px) {
+  .theme-toggle,
+  .mobile-toggle-btn,
+  .user-button-mobile {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .navbar-container {
+    padding: 0 0.75rem;
+  }
+}
+
+/* Avoid z-index wars: keep header above page but below modals that use z=1000+ */
+.header,
+.navbar {
+  z-index: 1000;
+}
+
+/* Ensure dropdown not clipped */
+.navbar-container,
+.navbar-content,
+.navbar-nav {
+  overflow: visible;
+}
+
+/* Horizontal overflow guard for tiny screens */
+body, html {
+  overflow-x: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .mobile-menu {
+    transition: none;
+  }
+}

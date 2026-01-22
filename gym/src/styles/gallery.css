@@ -323,3 +323,30 @@
   height: 1.5rem;
   width: 1.5rem;
 }
+
+
+/* Filters: allow horizontal scroll on small screens */
+@media (max-width: 480px) {
+  .filter-buttons {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+  }
+  .filter-buttons::-webkit-scrollbar { height: 6px; }
+  .filter-buttons::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 9999px; }
+}
+
+/* Mobile title sizing */
+@media (max-width: 480px) {
+  .gallery-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Lightbox: ensure safe height on small screens */
+@media (max-width: 640px) {
+  .lightbox-image {
+    max-height: 70vh;
+  }
+}

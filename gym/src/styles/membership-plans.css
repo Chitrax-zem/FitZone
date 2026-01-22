@@ -65,10 +65,43 @@
 /* Plans Grid */
 .plans-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
   margin-bottom: 60px;
 }
+
+@media (max-width: 768px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Reduce hover scale on mobile to prevent layout shift */
+@media (max-width: 768px) {
+  .plan-card.popular {
+    transform: none;
+  }
+}
+
+/* Modal safety and padding */
+@media (max-width: 768px) {
+  .subscription-modal {
+    margin: 10px;
+    max-height: calc(100vh - 20px);
+  }
+  .modal-header, .modal-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Inputs: comfortable touch sizes */
+.form-group input {
+  min-height: 44px;
+  font-size: 1rem;
+}
+
 
 /* Plan Card */
 .plan-card {
